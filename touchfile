@@ -1,0 +1,54 @@
+#! /usr/bin/env python3
+
+import sys
+import shutil
+
+# This script makes a copy of a python template, and names 
+# it to the first argument in sys
+
+# supported file type names
+filetypes = ["python", "java", "c", "c++", "pyscript", "bash"]
+
+# path to template files
+template_location = "/Users/cademccumber/projects/templates/"
+
+
+def usage():
+    print("\n[USAGE]: touchpy [TYPE] [NAME]")
+    print("\tTYPE - type of program, currently supporting:")
+    
+    for filename in filetypes:
+        print("\t - ", filename)
+
+    print("\n\tNAME - name of the file you wish to create.\n")
+    exit()
+
+
+if len(sys.argv) < 3:
+    usage()
+
+if sys.argv[1] == "python" or sys.argv[1] == "py":
+    shutil.copyfile(template_location + "py_.py", sys.argv[2])
+
+elif sys.argv[1] == "java":
+    shutil.copyfile(template_location + "java_.java", sys.argv[2])
+
+elif sys.argv[1] == "c" or sys.argv[1] == "C":
+    shutil.copyfile(template_location + "c_.c", sys.argv[2])
+
+elif sys.argv[1] == "cc" or sys.argv[1] == "CC" or sys.argv[1] == "c++" or sys.argv[1] == "C++":
+    # dirty, but so is existence
+    shutil.copyfile(template_location + "cpp_.cc", sys.argv[2])
+
+elif sys.argv[1] == "pyscript" or sys.argv[1] == "pythonscript":
+    shutil.copyfile(template_location + "pyscript_.py", sys.argv[2])
+
+elif sys.argv[1] == "bash" or sys.argv[1] == "bashscript" or sys.argv[1] == "sh":
+    shutil.copyfile(template_location + "bash_.sh", sys.argv[2])
+
+else:
+    print("\nCould not identify filetype provided.\n")
+    usage()
+
+
+print("created file named [", sys.argv[2],"]\n")
