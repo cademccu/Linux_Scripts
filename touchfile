@@ -7,7 +7,7 @@ import shutil
 # it to the first argument in sys
 
 # supported file type names
-filetypes = ["python", "java", "c", "c++", "pyscript", "bash"]
+filetypes = ["python", "java", "c", "c++", "pyscript", "bash", "javascript"]
 
 # path to template files
 template_location = "/Users/cademccumber/projects/templates/"
@@ -45,6 +45,9 @@ elif sys.argv[1] == "pyscript" or sys.argv[1] == "pythonscript":
 
 elif sys.argv[1] == "bash" or sys.argv[1] == "bashscript" or sys.argv[1] == "sh":
     shutil.copyfile(template_location + "bash_.sh", sys.argv[2])
+
+elif sys.argv[1] == "javascript" or sys.argv[1] == "js" or sys.argv[1] == "JS":
+    shutil.copyfile(template_location + "js_.js", sys.argv[2])
 
 else:
     print("\nCould not identify filetype provided.\n")
