@@ -2,7 +2,7 @@
 
 ### WHY
 
-Admin scripts I use on my own computer, to make my life genrally easier when existing
+Admin scripts I use on my own computer, to make my life generally easier when existing
 
 
 ### HOW
