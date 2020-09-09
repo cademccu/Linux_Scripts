@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+
+# opens a pdf in chrome
+
+if [ $# -eq 1 ]
+then
+	open -a "Google Chrome" $1
+else
+	echo "-------------------------------------------"
+	echo "[USAGE] pdf <path/to/pdf>"
+	echo "Opens PDF document in chrome from terminal."
+	echo "-------------------------------------------"
+fi
