@@ -1,36 +1,35 @@
 #! /usr/bin/env python3
 
 import subprocess
+import sys
+''' 
+This script just runs the ssh command for csu
+computer science building logins.
+'''
 
+# https://www.cs.colostate.edu/~info/machines
+logins = ["montpelier", "riyadh", "kabul", "kinshasa", "dhaka", "bismarck"]
 
-
-# TODO this is the command to get the name of the wifi
-# /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -I | awk -F: '/ SSID/{print $2}'
+def getList():
+    """
+    Gets the list of computers to specify at login
+    """
+    print("------------------------------")
+    for i in range(len(logins)):
+        print(str(i) + " - " + logins[i])
+    print("------------------------------")
 
 if __name__ == '__main__':
-    output = subprocess.check_output(["airport", "-I", "|", "awk", "\'/ SSID/{$2}\'"])
-
-    print("")
-    print("=== [CHECKING WIFI] ===")
-    print("...")
-    #index_of_SSID = output.find("SSID: ")
-    #print(index_of_SSID)
     
-    final = output.decode("utf-8")
+    num = 0
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "-l":
+            getList()
+            sys.exit(0)
+        num = int(sys.argv[1])
 
-    index_of_SSID = final.find(" SSID: ")
-    final = final[index_of_SSID+6:]
-    str_list = final.split ()
-    wifi = str_list[0]
-    print("=== [CURRENT WIFI IS: " + wifi + " ] ===")
-    print("...")
+    subprocess.call(["ssh", "-X", "cademccu@" + logins[num] + ".cs.colostate.edu"])
 
-    if wifi == "csu-eid" or wifi == "State":
-        print("=== [LOGGING ON!] ===")
-        print("...")
-        subprocess.call(["ssh", "-X", "cademccu@dhaka.cs.colostate.edu"])
-        # montpelier, riyadh, kabul, kinshasa, dhaka
-    else:
-        print("Need to change wifi")
-
-
+    # todo modify for big data options
+    # random selction??
+    # specify option?
