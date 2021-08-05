@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# moves a single file to trash
+if [[ $# -eq 1 ]] 
+	then
+		mv $1 ~/.Trash
+	else
+		echo "USE ONLY ONE ARGUMENT"
+fi
+	
