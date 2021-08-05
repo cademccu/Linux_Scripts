@@ -29,4 +29,7 @@ This script opens  a PDF from the terminal into Google Chrome. Useful for openin
 ##### touchfile
 This script emulates the "touch" command, but instead of just creating a file with the provided name, you provide an additional argument that will create a skeleton file of that file type. For example, you can create a java file with a main method already loaded, and the class already setup, just need to change the classname to reflect the actual file name. There are several file types available for use, and all is documented in the "-h" of the touchfile.
 
+##### jfix
+Fixes a unformatted JSON file to be a pretty-printed, fully indented file. Can replace, or overwrite, and can make a new file. -h for options.
+
 
